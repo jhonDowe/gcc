@@ -16,8 +16,7 @@ jobs:
     - name: download dependencies
       run: ./contrib/download_prerequisites
     - name: build outside source directory
-      run: mkdir ../build-gcc
-      run: cd ../build-gcc
+      run: mkdir ../build-gcc && cd ../build-gcc
     - name: configure
       run: ../gcc/configure --disable-multilib --enable-languages=c,c++
     - name: make
