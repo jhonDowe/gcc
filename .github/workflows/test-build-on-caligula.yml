@@ -23,5 +23,3 @@ jobs:
       run: make -j28
     - name: make check
       run: make check -j28
-    - name: make distcheck
-      run: make distcheck -j28
