@@ -1,0 +1,25 @@
+name: C/C++ CI
+
+on:
+  push:
+    branches: [ "jhonDowe-self-hosted-build" ]
+  pull_request:
+    branches: [ "jhonDowe-self-hosted-build" ]
+
+jobs:
+  build:
+
+    runs-on: self-hosted
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: download dependencies
+      run: ./contrib/download_prerequisites
+    - name: build outside source directory
+      run: cd ../build-gcc
+    - name: configure
+      run: ../gcc/configure --disable-multilib --enable-languages=c,c++,go
+    - name: make
+      run: make -j28
+    - name: make check
+      run: make check -j28
