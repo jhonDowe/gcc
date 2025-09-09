@@ -17,8 +17,6 @@ jobs:
       run: ./contrib/download_prerequisites
     - name: build outside source directory
       run: cd ../build-gcc
-    - name: cleanup build directory
-      run: make distclean
     - name: configure
       run: ../gcc/configure --disable-multilib --enable-languages=c,c++,go
     - name: make
